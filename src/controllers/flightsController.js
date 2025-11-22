@@ -1,9 +1,9 @@
 import flightsService from '../services/flightsService.js';
 
 //GET
-function getFlights(req, res) {
+async function getFlights(req, res) {
   try {
-    const flights = flightsService.getAllFlights();
+    const flights = await flightsService.getAllFlights();
     res.json(flights);
   } catch (err) {
     res.status(500).json({ error: err.message });
